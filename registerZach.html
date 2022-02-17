@@ -142,14 +142,14 @@ $(function () {
   $("#loginpage-form input[data-type=file], #loginpage-form input[data-type=image]").on("change",function(){
     $(this).data("uploadedfiles",[]);    
   });
-  const apikey = "620d054634fd621565858676"; // TODO: INSERT YOUR CORS API KEY HERE OR add formapikey to settings
+  const apikey = "620e5be234fd621565858738"; // TODO: INSERT YOUR CORS API KEY HERE OR add formapikey to settings
   
   if (!apikey) alert("Please insert a CORS API key");
 
   var ajaxSettings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://interactivedev-f542.restdb.io/rest/users-accounts",
+    "url": "https://covidcurious-a7f1.restdb.io/rest/accounts",
     "method": "POST",
     "headers": {
       "x-apikey": apikey,
