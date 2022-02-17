@@ -51,6 +51,16 @@
   content: '>';
   right: 0;
 }
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
     </style>
     <body>
           <section class="CoverSection">
@@ -103,9 +113,12 @@
                 </div>
               </div>
           </section>
+          <h1>Types of vaccine</h1>
+          <div class ="container">
           <div class="slider slider-1">
             <div class="photos">
               <img src="Images/PfizerConfirm.jpg" class="shown" alt="">
+              <div class="bottom-right"></div>
               <img src="Images/Sinovac.jpg" alt="">
               <img src="Images/Moderna.jpg" alt="">
               
@@ -115,6 +128,34 @@
               </div>
             </div>
           </div>
+        </div>
+        <br>
+        <br>
+        <ol class="list-group list-group-numbered">
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Pfizer Vaccine</div>
+              Content for list item
+            </div>
+            
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Sinovac Vaccine</div>
+              Content for list item
+            </div>
+            
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Moderna Vaccine</div>
+              Content for list item
+            </div>
+            
+          </li>
+        </ol>
+
+        
           <section>
             
           </section>
