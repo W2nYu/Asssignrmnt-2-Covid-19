@@ -1,7 +1,6 @@
 body {
     background-color: #9f9da7;
     font-size: 1.6rem;
-    font-family: "Open Sans", sans-serif;
     color: #2b3e51;
   }
   
@@ -22,7 +21,7 @@ body {
       }
       #loginpage-form input,  #loginpage-form select{
           width: 100%;
-    text-align: center;
+          text-align: center;
         
         
       }
