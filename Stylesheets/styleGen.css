@@ -9,7 +9,7 @@ body{
 }
 
 .header{
-  position: relative;
+  position: absolute;
 }
 
 .CovidIcon{

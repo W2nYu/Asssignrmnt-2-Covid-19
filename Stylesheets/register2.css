@@ -3,9 +3,10 @@ body{
 }
 
 .login-panel {
-    position: absolute;
+    position: relative;
     display: block;
-
+    margin-right: auto;
+    margin-left: auto;
     margin-top: 200px;
     width: 50%;
     height: 400px;
