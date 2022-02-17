@@ -1,0 +1,41 @@
+section{
+    height: 900px;
+    background-color: white;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.CoverSection{
+background-image: url(https://i.fbcd.co/products/original/cb7e51babba3596dbdf8d170e84cc4876369324e4913a61b7e7ba9f964cdb6a4.jpg);
+height: 600px;
+background-position: center;
+background-attachment: fixed;
+}
+
+.CoverSectionBot{
+height: 360px;
+background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0FSI_RVIuU_jl7NUsgGsLuGegCuo_bnclIA&usqp=CAU);
+background-position: center;
+background-attachment: fixed;
+}
+
+.CovSecContent{
+position: absolute;
+margin-top: 150px;
+margin-left: 50px;
+}
+
+.CovSecTitle{
+font-size: 130px;
+text-align: left;
+color: black;
+text-decoration: underline blue 10px;
+text-underline-offset: 25px;
+margin-bottom: 20px;
+}
+
+.CovSecP{
+font-size: 30px;
+text-align: left;
+color: black;
+}

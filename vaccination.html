@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Stylesheets/styleGen.css"> 
+        <link rel="stylesheet" href="Stylesheets/stylevac.css"> 
+        
+    </head>
+    <body>
+          <section class="CoverSection">
+            <div class="Header">
+              <img src="Images/Covid Curious-logos_black.png" alt="" class="CovidIcon">
+              <a href="login.html">
+                  <img src="Images/ProfileIcon.png" alt="Profile icon" class="ProfileIcon">
+              </a>
+              <nav>
+                <div class="nav-btn-container">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="overlay">
+                  <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="vaccination.html">Vaccination</a></li>
+                    <li><a href="statistics.html">Statistics</a></li>
+                    <li><a href="Rewards&More.html">Rewards & More</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+            <div class="CovSecContent">
+              <h1 class="CovSecTitle">Vaccination</h1>
+              <p class="CovSecP">Web page informs about the <br>vaccination centres in each district, <br>and shows the timeline of when to <br>take the vaccine shot</p>
+            </div>
+          </section>
+          <section>
+              <div class="GenContainer">
+                <div class="Left">
+                 <div class="LeftContainer">
+                  <p class="LeftP">Germs are all around us, both in our environment and in our bodies. When a person is susceptible and they encounter a harmful organism, it can lead to disease and death. <br><br>
+
+                    The body has many ways of defending itself against pathogens (disease-causing organisms). Skin, mucus, and cilia (microscopic hairs that move debris away from the lungs) all work as physical barriers to prevent pathogens from entering the body in the first place. <br><br>
+                    
+                    When a pathogen does infect the body, our body’s defences, called the immune system, are triggered and the pathogen is attacked and destroyed or overcome.
+                  </p>
+                  <a href="#">
+                    <p class="ReadMore">READ MORE</p>
+                  </a>
+                 </div>
+                </div>
+                <div class="Right">
+                  <h1 class="RightTitle1">How do</h1> 
+                  <h1 class="RightTitle2"> <br>vaccines work?</h1>
+                  <img src="Images/Vaccine Question Mark.jpg" alt="Vaccine questionmark" class="HowDoVacImg">
+                </div>
+              </div>
+          </section>
+          <section>
+            <h1>Incredibly Basic Slider</h1>
+            <div id="slider">
+              <a href="#" class="control_next">>></a>
+              <a href="#" class="control_prev"><<</a>
+              <ul>
+                <li>SLIDE 1</li>
+                <li style="background: #aaa;">SLIDE 2</li>
+                <li>SLIDE 3</li>
+                <li style="background: #aaa;">SLIDE 4</li>
+              </ul>  
+            </div>
+
+            <div class="slider_option">
+              <input type="checkbox" id="checkbox">
+              <label for="checkbox">Autoplay Slider</label>
+            </div> 
+          </section>
+
+          <section>
+
+          </section>
+          <section>
+            <h3>My Google Maps Demo</h3>
+            <div id="map"></div>
+        
+            <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+            <script
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=&v=weekly&channel=2"
+              async
+            ></script>
+          </section>
+          <script src="Scripts/NavScript.js"></script>
+          <script src="Scripts/VaccinePgSlider.js"></script>
+          <script src="Scripts/MapVacCen.js"></script>
+    </body>
+</html>

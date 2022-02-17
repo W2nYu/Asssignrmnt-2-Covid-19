@@ -1,0 +1,165 @@
+section{
+  background-color: black;
+  padding: 100px;
+}
+
+.TopCov{
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0FSI_RVIuU_jl7NUsgGsLuGegCuo_bnclIA&usqp=CAU);
+  height: 900px;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.AboutSec{
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0FSI_RVIuU_jl7NUsgGsLuGegCuo_bnclIA&usqp=CAU);
+  height: 700px;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.AboutLeft{
+  float: left;
+  width: 50%;
+}
+
+.AboutRight{
+  float: right;
+  width: 50%;
+}
+
+.AboutTitle{
+  float: left;
+  position: relative;
+  color: black;
+  font-size: 65px;
+  text-decoration: underline blue 10px;
+  text-underline-offset: 25px;
+}
+
+.AboutP{
+  float: left;
+  color: black;
+  position: relative;
+  text-align: left;
+  margin-top: 100px;
+  font-size: 30px;
+}
+
+.AboutPic{
+  border-radius: 100px;
+  width: 700px;
+}
+
+.GeneralContainer{
+  max-width: 1300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.TopCovPic{
+  width: 900px;
+  position: relative;
+  display: block;
+  left: 10px;
+  opacity: 0.7;
+}
+
+.TopCovTitle1{
+  position: absolute;
+  top: 225px;
+  left: 650px;
+  color: black;
+  text-align: center;
+  font-size: 130px;
+}
+
+.TopCovTitle2{
+  position: absolute;
+  top: 375px;
+  left: 650px;
+  color: black;
+  text-align: center;
+  font-size: 130px;
+  text-decoration: underline blue 15px;
+  text-underline-offset: 25px;
+}
+
+/* Content below for home page */
+
+.homeimg{
+  border-radius: 50px;
+  float: left;
+  margin-left: 100px;
+  margin-top: 100px;
+  width: 800px;
+}
+
+.ContentHeader{
+  width: 100%;
+  display: inline-block;
+  position:relative ;
+}
+
+.ContentTitle{
+  position:absolute;
+  float: left;
+  font-size: 65px;
+}
+
+.SecNum{
+  font-size: 65px;
+  text-decoration: underline blue 10px;
+  text-underline-offset: 10px;
+  float: right;
+}
+
+.ContentSec,.ContentSec-R{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1080px;
+}
+
+.ContentSec ul li, .ContentSec-R ul li{
+  text-align: left;
+  padding-top: 10px;
+}
+
+.ContentSecP, .ContentSecP-R{
+  font-size: 20px;
+  text-align: left;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+/* Right Lean section 02 Header sec*/
+.homeimg-R{
+  float: right;
+  margin-top: 100px;
+  margin-right: 100px;
+  width: 800px;
+  border-radius: 50px;
+}
+
+.ContentHeader-R{
+  width: 100%;
+  display: inline-block;
+}
+
+.ContentTitle-R{
+  position:absolute;
+  float: right;
+  font-size: 65px;
+  text-align: right;
+  margin-left: 950px;
+}
+
+.SecNum-R{
+  font-size: 65px;
+  text-decoration: underline blue 10px;
+  text-underline-offset: 10px;
+  float: left;
+}
+
+/* Footer */
