@@ -4,56 +4,53 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Stylesheets/styleGen.css"> 
-        <link rel="stylesheet" href="Stylesheets/stylevac.css"> 
+        <link rel="stylesheet" href="Stylesheets/stylevac.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
     </head>
     <style>
-      .slider {
-        width: 500px;
-        height: 300px;
-        background-color: yellow;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 0px;
-        text-align: center;
-        overflow: hidden;
-      }
-      .image-container {
-        width: 1500px;
-        background-color: pink;
-        height: 300px;
-        clear: both;
-        position: relative;
-        -webkit-transition: left 2s;
-        -moz-transition: left 2s;
-        -o-transition: left 2s;
-        transition: left 2s;
-      }
-      .slide {
-        float: left;
-        margin: 0px;
-        padding: 0px;
-        position: relative;
-      }
-      #slide-1:target ~ .image-container {
-        left: 0px;
-      }
-      #slide-2:target ~ .image-container {
-        left: -500px;
-      }
-      #slide-3:target ~ .image-container {
-        left: -1000px;
-      }
-      .buttons {
-        position: relative;
-        top: -20px;
-      }
-      .buttons a {
-        display: inline-block;
-        height: 15px;
-        width: 15px;
-        border-radius: 50px;
-        background-color: lightgreen;
-      }
+    .slider {
+    width: 700px;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+.slider .photos {
+    position: relative;
+    height: 433px;
+}
+
+.slider .photos img {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.slider .photos img.shown {
+    opacity: 1;
+}
+
+.prev:before,
+.next:before {
+  color: #fff;
+  font-size: 100px;
+  position: absolute;
+  top: 35%;
+  cursor: pointer;
+}
+
+.prev:before {
+  content: '<';
+  left: 0;
+}
+
+.next:before {
+  content: '>';
+  right: 0;
+}
     </style>
     <body>
           <section class="CoverSection">
@@ -106,24 +103,20 @@
                 </div>
               </div>
           </section>
-          <div class="slider">
-            <span id="slide-1"></span>
-            <span id="slide-2"></span>
-            <span id="slide-3"></span>
-            <div class="image-container">
-              <img src="/uploads/media/default/0001/03/66cf5094908491e69d8187bcf934050a4800b37f.jpeg" class="slide" width="500" height="300" />
-              <img src="/uploads/media/default/0001/03/b7d624354d5fa22e38b0ab1f9b905fb08ccc6a05.jpeg" class="slide" width="500" height="300" />
-              <img src="/uploads/media/default/0001/03/5bfad15a7fd24d448a48605baf52655a5bbe5a71.jpeg" class="slide" width="500" height="300" />
-            </div>
-            <div class="buttons">
-              <a href="#slide-1"></a>
-              <a href="#slide-2"></a>
-              <a href="#slide-3"></a>
+          <div class="slider slider-1">
+            <div class="photos">
+              <img src="Images/PfizerConfirm.jpg" class="shown" alt="">
+              <img src="Images/Sinovac.jpg" alt="">
+              <img src="Images/Moderna.jpg" alt="">
+              
+              <div class="buttons">
+                <div class="prev"></div>
+                <div class="next"></div>
+              </div>
             </div>
           </div>
-
           <section>
-
+            
           </section>
           <section>
             <h3>My Google Maps Demo</h3>
@@ -138,5 +131,70 @@
           <script src="Scripts/NavScript.js"></script>
           <script src="Scripts/VaccinePgSlider.js"></script>
           <script src="Scripts/MapVacCen.js"></script>
+          <script>
+            $(function() {
+
+new Slider({
+    images: '.slider-1 img',
+    btnPrev: '.slider-1 .buttons .prev',
+    btnNext: '.slider-1 .buttons .next',
+    auto: false
+});
+
+new Slider({
+    images: '.slider-2 img',
+    btnPrev: '.slider-2 .buttons .prev',
+    btnNext: '.slider-2 .buttons .next',
+    auto: true,
+    rate: 2000
+});
+});
+
+
+function Slider(obj) {
+
+this.images = $(obj.images);
+this.auto = obj.auto;
+this.btnPrev = obj.btnPrev;
+this.btnNext = obj.btnNext;
+this.rate = obj.rate || 1000;
+
+var i = 0;
+var slider = this;
+
+// The "Previous" button: to remove the class .shoved, show the previous image and add the .shoved class
+this.prev = function () {
+slider.images.eq(i).removeClass('shown');
+i--;
+
+if (i < 0) {
+  i = slider.images.length - 1;
+}
+
+slider.images.eq(i).addClass('shown');
+}
+
+// The "Next" button: to remove the class .shoved, show the next image and add the .shoved class
+this.next = function () {
+slider.images.eq(i).removeClass('shown');
+i++;
+
+if (i >= slider.images.length) {
+  i = 0;
+}
+
+slider.images.eq(i).addClass('shown');
+}
+
+// To add next and prev functions when clicking the corresponding buttons
+$(slider.btnPrev).on('click', function(){ slider.prev();});
+$(slider.btnNext).on('click', function(){ slider.next();});
+
+// For the automatic slider: this method calls the next function at the set rate
+if (slider.auto)  {
+    setInterval(slider.next, slider.rate);
+}
+};
+          </script>
     </body>
 </html>
