@@ -6,61 +6,10 @@
         <link rel="stylesheet" href="Stylesheets/styleGen.css"> 
         <link rel="stylesheet" href="Stylesheets/stylevac.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+
     </head>
     <style>
-    .slider {
-    width: 700px;
-    margin: 0 auto 20px;
-    text-align: center;
-}
 
-.slider .photos {
-    position: relative;
-    height: 433px;
-}
-
-.slider .photos img {
-    width: 100%;
-    position: absolute;
-    left: 0;
-    opacity: 0;
-    transition: opacity 1s;
-}
-
-.slider .photos img.shown {
-    opacity: 1;
-}
-
-.prev:before,
-.next:before {
-  color: #fff;
-  font-size: 100px;
-  position: absolute;
-  top: 35%;
-  cursor: pointer;
-}
-
-.prev:before {
-  content: '<';
-  left: 0;
-}
-
-.next:before {
-  content: '>';
-  right: 0;
-}
-.container {
-  position: relative;
-  text-align: center;
-  color: white;
-}
-.bottom-right {
-  position: absolute;
-  bottom: 8px;
-  right: 16px;
-}
     </style>
     <body>
           <section class="CoverSection">
@@ -91,6 +40,7 @@
               <p class="CovSecP">Web page informs about the <br>vaccination centres in each district, <br>and shows the timeline of when to <br>take the vaccine shot</p>
             </div>
           </section>
+
           <section>
               <div class="GenContainer">
                 <div class="Left">
@@ -112,52 +62,57 @@
                   <img src="Images/Vaccine Question Mark.jpg" alt="Vaccine questionmark" class="HowDoVacImg">
                 </div>
               </div>
+
           </section>
-          <h1>Types of vaccine</h1>
-          <div class ="container">
-          <div class="slider slider-1">
-            <div class="photos">
-              <img src="Images/PfizerConfirm.jpg" class="shown" alt="">
-              <div class="bottom-right"></div>
-              <img src="Images/Sinovac.jpg" alt="">
-              <img src="Images/Moderna.jpg" alt="">
-              
-              <div class="buttons">
-                <div class="prev"></div>
-                <div class="next"></div>
+
+          <section>
+              <h1 class="vacSecTitle">Types of vaccine</h1>
+              <div class ="container">
+                  <div class="slider slider-1">
+                      <div class="photos">
+                          <img src="Images/PfizerConfirm.jpg" class="shown" alt="">
+                          <div class="bottom-right"></div>
+                          <img src="Images/Sinovac.jpg" alt="">
+                          <img src="Images/Moderna.jpg" alt="">
+
+                          <div class="buttons">
+                              <div class="prev"></div>
+                              <div class="next"></div>
+                          </div>
+                      </div>
+                  </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <br>
-        <br>
-        <ol class="list-group list-group-numbered">
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-              <div class="fw-bold">Pfizer Vaccine</div>
-              Content for list item
-            </div>
-            
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-              <div class="fw-bold">Sinovac Vaccine</div>
-              Content for list item
-            </div>
-            
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-              <div class="fw-bold">Moderna Vaccine</div>
-              Content for list item
-            </div>
-            
-          </li>
-        </ol>
+              <br>
+              <br>
+              <ol class="list-group list-group-numbered">
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                      <div class="ms-2 me-auto">
+                          <div class="fw-bold">Pfizer Vaccine</div>
+                          Content for list item
+                      </div>
+
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                      <div class="ms-2 me-auto">
+                          <div class="fw-bold">Sinovac Vaccine</div>
+                          Content for list item
+                      </div>
+
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                      <div class="ms-2 me-auto">
+                          <div class="fw-bold">Moderna Vaccine</div>
+                          Content for list item
+                      </div>
+
+                  </li>
+              </ol>
+          </section>
 
         
           <section>
-            
+            <h1>Vaccination Centres</h1>
+
           </section>
           <section>
             <h3>My Google Maps Demo</h3>
@@ -172,70 +127,7 @@
           <script src="Scripts/NavScript.js"></script>
           <script src="Scripts/VaccinePgSlider.js"></script>
           <script src="Scripts/MapVacCen.js"></script>
-          <script>
-            $(function() {
-
-new Slider({
-    images: '.slider-1 img',
-    btnPrev: '.slider-1 .buttons .prev',
-    btnNext: '.slider-1 .buttons .next',
-    auto: false
-});
-
-new Slider({
-    images: '.slider-2 img',
-    btnPrev: '.slider-2 .buttons .prev',
-    btnNext: '.slider-2 .buttons .next',
-    auto: true,
-    rate: 2000
-});
-});
-
-
-function Slider(obj) {
-
-this.images = $(obj.images);
-this.auto = obj.auto;
-this.btnPrev = obj.btnPrev;
-this.btnNext = obj.btnNext;
-this.rate = obj.rate || 1000;
-
-var i = 0;
-var slider = this;
-
-// The "Previous" button: to remove the class .shoved, show the previous image and add the .shoved class
-this.prev = function () {
-slider.images.eq(i).removeClass('shown');
-i--;
-
-if (i < 0) {
-  i = slider.images.length - 1;
-}
-
-slider.images.eq(i).addClass('shown');
-}
-
-// The "Next" button: to remove the class .shoved, show the next image and add the .shoved class
-this.next = function () {
-slider.images.eq(i).removeClass('shown');
-i++;
-
-if (i >= slider.images.length) {
-  i = 0;
-}
-
-slider.images.eq(i).addClass('shown');
-}
-
-// To add next and prev functions when clicking the corresponding buttons
-$(slider.btnPrev).on('click', function(){ slider.prev();});
-$(slider.btnNext).on('click', function(){ slider.next();});
-
-// For the automatic slider: this method calls the next function at the set rate
-if (slider.auto)  {
-    setInterval(slider.next, slider.rate);
-}
-};
-          </script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </body>
 </html>
