@@ -182,7 +182,7 @@ h1 {
       <script src="http://cdn.sketchpad.pro/dist/current/sketchpad.min.js"></script>
     <script>
       /*global window, Sketchpad, Colorpalette*/
-
+      
 function initSketchpad() {
     "use strict";
     //create sketchpad on #sketchpad element
@@ -229,6 +229,11 @@ initSketchpad();
           link.href = document.getElementById(canvas).toDataURL();
           link.download = filename;
       }
+      const canvas = document.querySelector('#sketchpad');
+const ctx = canvas.getContext('2d');
+//uselessdog123ctx.strokeStyle = '#BADA55';
+ctx.fillStyle = "#ffffff"; 
+ctx.fillRect(0, 0, canvas.width, canvas.height); 
 
     </script>
 </body>
