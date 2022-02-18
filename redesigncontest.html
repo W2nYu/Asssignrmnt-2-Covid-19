@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>restdb.io pngfile</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN" crossorigin="anonymous">
+  <link href="https://interactivedev-f542.restdb.io/assets/css/jquery.datetimepicker.min.css" rel="stylesheet">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+
+      font-family: 'poppins',sans-serif;
+    }
+
+    body{
+      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0FSI_RVIuU_jl7NUsgGsLuGegCuo_bnclIA&usqp=CAU");
+    }
+
+    .title{
+      padding: 100px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 65px;
+      color: black;
+      text-decoration: underline blue 10px;
+      text-underline-offset: 25px;
+    }
+
+    .box {
+      display: flex;
+      justify-content: center;
+
+    }
+
+    .h2 h4 {
+      font-size: 4.5em;
+      letter-spacing: -1px;
+      background-color: black;
+      color: white;
+
+    }
+    .row1 {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -15px;
+      margin-right: -15px;
+      text-align: center;
+      justify-content: center;
+      width: 33.3%;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      border-radius: 25px;
+      border: 2px solid #73AD21;
+      padding: 20px;
+      height: 800px;
+    }
+
+    /*styling for the drawing canvas*/
+    section
+    {
+      margin: 0px;
+      margin: 0px;
+      font-family: Arial, sans-serif;
+    }
+
+
+    h1 {
+      color:black;
+
+    }
+
+
+    #sketchpad {
+      right: 0;
+      width: 100%;
+      height: 640px;
+      border:1px solid rgba(128, 128, 128, 1);
+    }
+
+    .bottomButtons{
+      height: 300px;
+      padding-top: 50px;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .submitImage{
+      width: 30%;
+      float: right;
+    }
+
+    .exitButton{
+      height: 50px;
+      width: 100px;
+      background-color: transparent;
+      color: black;
+    }
+
+    .exitButton:hover{
+      background-color: blue;
+      color: white;
+    }
+
+    .instructions{
+      width: 80%;
+      margin-right: auto;
+      margin-left: auto;
+      border: 2px solid black;
+    }
+
+    .instrucTitle{
+      padding: 20px;
+    }
+
+    .instructList{
+      padding: 30px;
+    }
+
+    .note{
+      padding: 20px;
+    }
+
+    .extra{
+      position: absolute;
+      margin-top: 450px;
+    }
+    .thank-you{
+      font-size: 16px;
+      padding: 20px;
+    }
+    #pngfile-form{
+      padding: 10px;
+    }
+    #pngfile-form input,  #pngfile-form select{
+      width: 300px;
+    }
+    label{
+      display: block;
+    }
+    .form-control{
+      width: auto;
+    }
+    .help-block{
+      margin-left:10px;
+    }
+    .progress{
+      width: 300px;
+      height:10px;
+      border-radius:0px;
+      margin-top: 2px;
+    }
+    #btn-submit{
+      width: 300px;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+  <script src="https://interactivedev-f542.restdb.io/assets/js/jquery-serialize-object.min.js"></script>
+  <script src="https://interactivedev-f542.restdb.io/assets/js/jquery.datetimepicker.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.1/lodash.min.js"></script>
+</head>
+<body>
+<h1 class="title">Start your sketch here!</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 p-r-0" style="min-width: 200px;">
+      <p>Pen:</p>
+      <div id="colorpalette" class="colorpalette"></div>
+      <hr>
+      Size: <input id="size" type="range" min="0.5" max="100" value="1" step="0.1"/>
+      <hr>
+      <p>
+        Erase:
+        <span id="eraser" class="btn btn-secondary eraser center-block"><i class="fa fa-eraser" aria-hidden="true"></i></span>
+      </p>
+    </div>
+    <div class="extra">
+      <a id="saveToImage" class="btn btn-warning">Download</a>
+    </div>
+    <div class="col-sm-9 p-l-0 p-r-0">
+      <!-- SketchpadJS container here: -->
+      <div id="sketchpad"></div>
+    </div>
+  </div>
+</div>
+
+<div class="bottomButtons">
+  <a href="Rewards&More.html">
+    <button class="exitButton">EXIT</button>
+  </a>
+  <div class="submitImage">
+    <form role="form" id="pngfile-form">
+      <div class="form-group">
+        <label>Picturesubmit: </label>
+        <input class="form-control" name="picturesubmit" data-type="image" accept="image/*" type="file" required multiple>
+        <div class="progress hidden">
+          <div id="picturesubmit_progress" class="progress-bar" role="progressbar" aria-valuenow="0"
+               aria-valuemin="0" aria-valuemax="100" style="width:0">
+            <span class="sr-only">0%</span>
+          </div>
+        </div>
+      </div>
+      <div id="fg-errors" class="form-group">
+      </div>
+      <button class="btn btn-primary btn-lg" id="btn-submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Submitting...">Submit</button></form>
+  </div>
+</div>
+
+<div class="instructions">
+  <h2 class="instrucTitle"><u>Instructions</u> </h2>
+  <br>
+  <ol class="instructList">
+    <li>Crank up your creative juices and draw a redesigned packaging of the COVID-19 ART test kit</li>
+    <br>
+    <li>Once finished drawing on the canvas, right click to save the image</li>
+    <br>
+    <li>Finally, upload it and wait for your results!</li>
+    <br>
+  </ol>
+  <i class="note">Note: Submitted drawings are to be drawn on the canvas</i>
+</div>
+
+<script src="http://cdn.sketchpad.pro/dist/current/sketchpad.min.js"></script>
+<script>
+  $(function () {
+
+    // put your own error messages and/or message translation logic here
+
+    var errorMessages = {
+      "REQUIRED": "This field is required",
+      "UNIQUE": "This value already exists",
+      "TYPE": "Invalid data type",
+      "REGEX":"Invalid data format",
+      "number": "Must be an integer number",
+      "money": "Must be a number with max two decimals",
+      "JSON":"Not a valid JSON",
+      "float_number":"Must be a decimal number",
+      "email": "Must be a valid email",
+      "FILESIZE": "Upload exceeds file size limit per field (max 1 MB)",
+      "UPLOADERROR": "Unable to upload file, please try again",
+      "GENERIC_ERROR": "A server error occured, please reload page"
+    }
+
+    var successMessage = "Thank you!";
+
+    // enable javascript datetimepicker unless supported
+    // Docs and settings: http://xdsoft.net/jqplugins/datetimepicker/
+
+    $.datetimepicker.setLocale('en');
+
+    // if missing support for datetime, then use jquery.datetimepicker
+
+    if (!Modernizr.inputtypes.datetime){
+      $("input[data-type=date]").datetimepicker({timepicker:false,format:"Y/m/d"}).attr("type","text");
+      $("input[data-type=datetime]").datetimepicker({}).attr("type","text");
+      $("input[data-type=time]").datetimepicker({datepicker:false,format:"H:i",value:"12:00"}).attr("type","text");
+    }
+
+    $("#pngfile-form input[data-type=file], #pngfile-form input[data-type=image]").on("change",function(){
+      $(this).data("uploadedfiles",[]);
+    });
+    var apikey = "620e5be234fd621565858738"; // TODO: INSERT YOUR CORS API KEY HERE OR add formapikey to settings
+
+    if (!apikey) alert("Please insert a CORS API key");
+
+    var ajaxSettings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://covidcurious-a7f1.restdb.io/rest/accounts",
+      "method": "POST",
+      "headers": {
+        "x-apikey": apikey,
+        "content-type": "application/json"
+      },
+      "processData": false
+    }
+
+    var ajaxSettingsAttachments = {
+      "async": true,
+      "url": "https://covidcurious-a7f1.restdb.io/rest/accounts",
+      "method": "POST",
+      "contentType": false,
+      "headers": {
+        "x-apikey": apikey
+      },
+      "cache": false,
+      "processData": false
+    }
+
+
+
+    function uploadAttachment(item){
+      var deferred = $.Deferred();
+      var datatype = $(item).attr("data-type");
+      var element_name = $(item).attr("name");
+      var formData = new FormData();
+      var files = $(item)[0].files;
+      var totalsize = 0;
+      var files_to_upload = []
+      _.each(files,function(file){
+        // ignore non-images
+        if(datatype==="image" && !file.type.match('image.*')){
+          return;
+        }else{
+          files_to_upload.push(file);
+          totalsize += file.size;
+        }
+      });
+
+      // check max upload file size for development plan
+      if (totalsize<=1000000){
+        _.each(files_to_upload,function(file){
+          formData.append(element_name, file, file.name);
+        });
+        var asa = _.clone(ajaxSettingsAttachments);
+        asa.xhr = function() {
+          var xhr = new window.XMLHttpRequest();
+          xhr.upload.addEventListener("progress", function(evt) {
+            if (evt.lengthComputable) {
+              var percentComplete = evt.loaded / evt.total;
+              percentComplete = parseInt(percentComplete * 100)+"%";
+              $("#"+element_name+"_progress")
+                      .css("width",percentComplete)
+            }
+          }, false);
+          return xhr;
+        }
+        asa.data = formData;
+        var uploadedbefore = $(item).data("uploaded");
+        if (!uploadedbefore){
+          $("#"+element_name+"_progress").parent().removeClass("hidden");
+          $("#btn-submit").button("loading");
+          $.ajax(asa)
+                  .success(function(data){
+                    var result = data.ids || [];
+                    var successObj = {};
+                    successObj[element_name] = result;
+                    $(item).data("uploaded",result);
+                    deferred.resolve(successObj);
+                  })
+                  .fail(function(){
+                    deferred.reject({field: element_name, error: errorMessages.UPLOADERROR});
+                  });
+        }else{
+          var obj = {};
+          obj[element_name]=uploadedbefore;
+          deferred.resolve(obj);
+        }
+      }else{
+        deferred.reject({field: element_name, error: errorMessages.FILESIZE});
+      }
+      return deferred.promise();
+    }
+
+    function postForm() {
+
+      // clear errors
+      $("#pngfile-form .has-error").removeClass("has-error");
+      $("#pngfile-form .help-block").remove();
+
+      $("#btn-submit").button("loading");
+
+      // we need to reformat date, datetime, datetime-local and time to ISO date strings
+
+      $("input[data-type=datetime],input[data-type=datetime-local]").each(function(){
+        var theDate = $(this).val();
+        if(theDate){
+          var isodate_str = new Date(theDate).toISOString();
+          $(this).val(isodate_str);
+        }
+      });
+
+      $("input[data-type=date]").each(function(){
+        var theDate = $(this).val();
+        if (theDate){
+          theDate += " GMT";
+          var isodate_str = new Date(theDate).toISOString();
+          $(this).val(isodate_str);
+        }
+      });
+
+      $("input[data-type=time]").each(function(){
+        var timeval = $(this).val();
+        if (timeval){
+          var regex = /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/
+          if (timeval.match(regex)){
+            var isodate_str = new Date("1970-01-01T"+$(this).val()+":00Z").toISOString();
+            $(this).val(isodate_str);
+          }
+        }
+      });
+
+
+      // get the form data
+      var formObj = $("#pngfile-form").serializeObject();
+
+      // get attachments from inputs
+      var attachments = [];
+
+      $("#pngfile-form input[data-type=file], #pngfile-form input[data-type=image]").each(function(input){
+        var files = $(this)[0].files;
+        if(files && files.length>0){
+          attachments.push($(this));
+        }
+      });
+
+      var attachFuncs = [];
+      _.each(attachments,function(attachment){
+        attachFuncs.push(uploadAttachment(attachment));
+      });
+
+      // upload all attachments and return with ids when done
+      $.when.apply(null,attachFuncs)
+              .done(function(){
+                // get the attachment id's from arguments and store into form obj
+
+                _.each(arguments,function(fieldObj){
+                  formObj = _.assign(formObj,fieldObj);
+                });
+
+                // submit the whole form with attachment ids
+
+                ajaxSettings.data = JSON.stringify(formObj);
+                $.ajax(ajaxSettings)
+                        .done(function (response) {
+                          // replaces form with a thank you message, please replace with your own functionality
+                          $("#pngfile-form").replaceWith("<div class='thank-you'>"+successMessage+"</div>");
+                        })
+                        .fail(function (response) {
+                          $("#btn-submit").button("reset");
+                          var error = response.responseJSON;
+                          if (error && error.name==="ValidationError"){
+                            _.each(error.list,function(fielderr){
+                              var inputSelector = "[name="+fielderr.field+"]";
+                              var errorMessageCode = fielderr.message[1];
+                              var errorMessage = errorMessages[errorMessageCode] || "Invalid value";
+                              if (errorMessageCode==="TYPE"){
+                                var fieldType = $(inputSelector).data("type");
+                                errorMessage = errorMessages[fieldType] || "Invalid value";
+                              }
+                              $(inputSelector).after("<div class='help-block'>"+errorMessage+"</div>");
+                              $(inputSelector).parents(".form-group").addClass("has-error");
+                            });
+                          }
+                          else{
+                            var msg = (ajaxSettings.headers["x-apikey"] && ajaxSettings.headers["x-apikey"].length < 24) ? "Missing API-key": "Server Error";
+                            alert(msg);
+                          }
+                        });
+              })
+              .fail( function (response) {
+                $("#btn-submit").button("reset");
+                if (response.field && response.error){
+                  var inputSelector = "[name="+response.field+"]";
+                  $(inputSelector).after("<div class='help-block'>"+response.error+"</div>");
+                  $(inputSelector).parents(".form-group").addClass("has-error");
+                }else{
+                  var errorMessage = errorMessages.GENERIC_ERROR || "Problem submitting form";
+                  $("#fg-errors").addClass("has-error")
+                          .append("<div class='help-block'>"+errorMessage+"</div>");
+                }
+              });
+    };
+
+    $("#pngfile-form").submit(function (event) {
+      postForm();
+      event.preventDefault();
+      return false;
+    });
+  });
+</script>
+<script>function initSketchpad() {
+  "use strict";
+  //create sketchpad on #sketchpad element
+  var sketchpad = new Sketchpad({
+    containerEl: document.getElementById("sketchpad"),
+    createPageConfig: {no: 1}
+  });
+  // avaliable tools `src/sketchpad.tool.*.js`, ex. "pen", "colouring", "line", "rect", "circ"...
+  var toolId = "pen";
+  var tool = sketchpad.setTool(toolId).getCurrentTool();
+
+  //create colorpalette on #colorpalette element
+  var colorpalette = new Colorpalette({
+    containerEl: document.getElementById("colorpalette")
+  }).on("change", function (e) { //bind on change event
+    sketchpad.setTool(toolId).getCurrentTool().setColor(e.color.red, e.color.green, e.color.blue, e.color.alpha);
+  }).setColor(tool.setColor(128, 64, 32, 1).getColor()); //set default color
+
+  // bind on change size event
+  document.getElementById("size").addEventListener("change", function (e) {
+    sketchpad.getCurrentTool().setSize(e.target.value);
+  });
+  document.getElementById("size").value = tool.setSize(2).getSize();//set default size
+
+  // bind eraser button
+  document.getElementById('eraser').addEventListener("click", function () {
+    sketchpad.setTool("eraser");
+  });
+
+  //make objects below visible in global scope
+  window.sketchpad = sketchpad;
+  window.colorpalette = colorpalette;
+  window.tool = tool;
+}
+initSketchpad();
+
+// DOWNLOAD CANVAS
+
+document.getElementById('saveToImage').addEventListener('click', function() {
+  downloadCanvas(this, 'canvas', 'masterpiece.png');
+}, false);
+
+function downloadCanvas(link, canvas, filename) {
+  link.href = document.getElementById(canvas).toDataURL();
+  link.download = filename;
+}
+const canvas = document.querySelector('#sketchpad');
+const ctx = canvas.getContext('2d');
+//uselessdog123ctx.strokeStyle = '#BADA55';
+ctx.fillStyle = "#ffffff";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+$(function () {
+
+  // put your own error messages and/or message translation logic here
+
+  var errorMessages = {
+    "REQUIRED": "This field is required",
+    "UNIQUE": "This value already exists",
+    "TYPE": "Invalid data type",
+    "REGEX":"Invalid data format",
+    "number": "Must be an integer number",
+    "money": "Must be a number with max two decimals",
+    "JSON":"Not a valid JSON",
+    "float_number":"Must be a decimal number",
+    "email": "Must be a valid email",
+    "FILESIZE": "Upload exceeds file size limit per field (max 1 MB)",
+    "UPLOADERROR": "Unable to upload file, please try again",
+    "GENERIC_ERROR": "A server error occured, please reload page"
+  }
+
+  var successMessage = "Thank you!";
+
+  // enable javascript datetimepicker unless supported
+  // Docs and settings: http://xdsoft.net/jqplugins/datetimepicker/
+
+  $.datetimepicker.setLocale('en');
+
+  // if missing support for datetime, then use jquery.datetimepicker
+
+  if (!Modernizr.inputtypes.datetime){
+    $("input[data-type=date]").datetimepicker({timepicker:false,format:"Y/m/d"}).attr("type","text");
+    $("input[data-type=datetime]").datetimepicker({}).attr("type","text");
+    $("input[data-type=time]").datetimepicker({datepicker:false,format:"H:i",value:"12:00"}).attr("type","text");
+  }
+
+  $("#pngfile-form input[data-type=file], #pngfile-form input[data-type=image]").on("change",function(){
+    $(this).data("uploadedfiles",[]);
+  });
+  var apikey = "620e5be234fd621565858738"; // TODO: INSERT YOUR CORS API KEY HERE OR add formapikey to settings
+
+  if (!apikey) alert("Please insert a CORS API key");
+
+  var ajaxSettings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://covidcurious-a7f1.restdb.io/rest/accounts",
+    "method": "POST",
+    "headers": {
+      "x-apikey": apikey,
+      "content-type": "application/json"
+    },
+    "processData": false
+  }
+
+  var ajaxSettingsAttachments = {
+    "async": true,
+    "url": "https://covidcurious-a7f1.restdb.io/rest/accounts",
+    "method": "POST",
+    "contentType": false,
+    "headers": {
+      "x-apikey": apikey
+    },
+    "cache": false,
+    "processData": false
+  }
+
+
+
+  function uploadAttachment(item){
+    var deferred = $.Deferred();
+    var datatype = $(item).attr("data-type");
+    var element_name = $(item).attr("name");
+    var formData = new FormData();
+    var files = $(item)[0].files;
+    var totalsize = 0;
+    var files_to_upload = []
+    _.each(files,function(file){
+      // ignore non-images
+      if(datatype==="image" && !file.type.match('image.*')){
+        return;
+      }else{
+        files_to_upload.push(file);
+        totalsize += file.size;
+      }
+    });
+
+    // check max upload file size for development plan
+    if (totalsize<=1000000){
+      _.each(files_to_upload,function(file){
+        formData.append(element_name, file, file.name);
+      });
+      var asa = _.clone(ajaxSettingsAttachments);
+      asa.xhr = function() {
+        var xhr = new window.XMLHttpRequest();
+        xhr.upload.addEventListener("progress", function(evt) {
+          if (evt.lengthComputable) {
+            var percentComplete = evt.loaded / evt.total;
+            percentComplete = parseInt(percentComplete * 100)+"%";
+            $("#"+element_name+"_progress")
+                    .css("width",percentComplete)
+          }
+        }, false);
+        return xhr;
+      }
+      asa.data = formData;
+      var uploadedbefore = $(item).data("uploaded");
+      if (!uploadedbefore){
+        $("#"+element_name+"_progress").parent().removeClass("hidden");
+        $("#btn-submit").button("loading");
+        $.ajax(asa)
+                .success(function(data){
+                  var result = data.ids || [];
+                  var successObj = {};
+                  successObj[element_name] = result;
+                  $(item).data("uploaded",result);
+                  deferred.resolve(successObj);
+                })
+                .fail(function(){
+                  deferred.reject({field: element_name, error: errorMessages.UPLOADERROR});
+                });
+      }else{
+        var obj = {};
+        obj[element_name]=uploadedbefore;
+        deferred.resolve(obj);
+      }
+    }else{
+      deferred.reject({field: element_name, error: errorMessages.FILESIZE});
+    }
+    return deferred.promise();
+  }
+
+  function postForm() {
+
+    // clear errors
+    $("#pngfile-form .has-error").removeClass("has-error");
+    $("#pngfile-form .help-block").remove();
+
+    $("#btn-submit").button("loading");
+
+    // we need to reformat date, datetime, datetime-local and time to ISO date strings
+
+    $("input[data-type=datetime],input[data-type=datetime-local]").each(function(){
+      var theDate = $(this).val();
+      if(theDate){
+        var isodate_str = new Date(theDate).toISOString();
+        $(this).val(isodate_str);
+      }
+    });
+
+    $("input[data-type=date]").each(function(){
+      var theDate = $(this).val();
+      if (theDate){
+        theDate += " GMT";
+        var isodate_str = new Date(theDate).toISOString();
+        $(this).val(isodate_str);
+      }
+    });
+
+    $("input[data-type=time]").each(function(){
+      var timeval = $(this).val();
+      if (timeval){
+        var regex = /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/
+        if (timeval.match(regex)){
+          var isodate_str = new Date("1970-01-01T"+$(this).val()+":00Z").toISOString();
+          $(this).val(isodate_str);
+        }
+      }
+    });
+
+
+    // get the form data
+    var formObj = $("#pngfile-form").serializeObject();
+
+    // get attachments from inputs
+    var attachments = [];
+
+    $("#pngfile-form input[data-type=file], #pngfile-form input[data-type=image]").each(function(input){
+      var files = $(this)[0].files;
+      if(files && files.length>0){
+        attachments.push($(this));
+      }
+    });
+
+    var attachFuncs = [];
+    _.each(attachments,function(attachment){
+      attachFuncs.push(uploadAttachment(attachment));
+    });
+
+    // upload all attachments and return with ids when done
+    $.when.apply(null,attachFuncs)
+            .done(function(){
+              // get the attachment id's from arguments and store into form obj
+
+              _.each(arguments,function(fieldObj){
+                formObj = _.assign(formObj,fieldObj);
+              });
+
+              // submit the whole form with attachment ids
+
+              ajaxSettings.data = JSON.stringify(formObj);
+              $.ajax(ajaxSettings)
+                      .done(function (response) {
+                        // replaces form with a thank you message, please replace with your own functionality
+                        $("#pngfile-form").replaceWith("<div class='thank-you'>"+successMessage+"</div>");
+                      })
+                      .fail(function (response) {
+                        $("#btn-submit").button("reset");
+                        var error = response.responseJSON;
+                        if (error && error.name==="ValidationError"){
+                          _.each(error.list,function(fielderr){
+                            var inputSelector = "[name="+fielderr.field+"]";
+                            var errorMessageCode = fielderr.message[1];
+                            var errorMessage = errorMessages[errorMessageCode] || "Invalid value";
+                            if (errorMessageCode==="TYPE"){
+                              var fieldType = $(inputSelector).data("type");
+                              errorMessage = errorMessages[fieldType] || "Invalid value";
+                            }
+                            $(inputSelector).after("<div class='help-block'>"+errorMessage+"</div>");
+                            $(inputSelector).parents(".form-group").addClass("has-error");
+                          });
+                        }
+                        else{
+                          var msg = (ajaxSettings.headers["x-apikey"] && ajaxSettings.headers["x-apikey"].length < 24) ? "Missing API-key": "Server Error";
+                          alert(msg);
+                        }
+                      });
+            })
+            .fail( function (response) {
+              $("#btn-submit").button("reset");
+              if (response.field && response.error){
+                var inputSelector = "[name="+response.field+"]";
+                $(inputSelector).after("<div class='help-block'>"+response.error+"</div>");
+                $(inputSelector).parents(".form-group").addClass("has-error");
+              }else{
+                var errorMessage = errorMessages.GENERIC_ERROR || "Problem submitting form";
+                $("#fg-errors").addClass("has-error")
+                        .append("<div class='help-block'>"+errorMessage+"</div>");
+              }
+            });
+  };
+
+  $("#pngfile-form").submit(function (event) {
+    postForm();
+    event.preventDefault();
+    return false;
+  });
+});</script>  </body>
+</html>
