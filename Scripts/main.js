@@ -1,6 +1,6 @@
 const user = localStorage.getItem("user");
 
-$(document).ready(function () {
+/*$(document).ready(function () {
     let settings = {
         "async": true,
         "crossDomain": true,
@@ -12,7 +12,33 @@ $(document).ready(function () {
             "cache-control": "no-cache"
         }
     }
-    let username = "";
+    */
+
+    // AJAX TO ACCESS DATABASE
+function ajaxFuncGET() {
+    return $.ajax({
+        "async": true,
+        "crossDomain": true,
+        "url": "https://covidcurious-a7f1.restdb.io/rest/accounts",
+        "method": "GET",
+        "headers": {
+            "content-type": "application/json",
+            "x-apikey": "620e5be234fd621565858738",
+            "cache-control": "no-cache"
+        }
+    });
+}
+let username = "";
+ajaxFuncGET().done(function (response) {
+    response.map(account => {
+        if ( account.Username=== $("#username")) {
+            username = account.Username;
+            $("#navbar-username").html(`Welcome, ${username}!`)
+        }
+    });
+});
+
+    /*let username = "";
     if (user !== null) {
         $.ajax(settings).done(function (response) {
             response.map(account => {
@@ -23,6 +49,7 @@ $(document).ready(function () {
                 }
             });
         });
+        
         // just to bring over to html later
         // not a real variable to use
         let example = `<p id="navbar-username"></p>`;
@@ -30,10 +57,12 @@ $(document).ready(function () {
     else {
         $("#navbar-username").html("");
     }
-
+    */
+/*
     // to logout
     $("#logout").on("click", function () {
         localStorage.removeItem("user");
         window.location.assign("index.html");
     });
 });
+*/

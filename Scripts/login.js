@@ -26,6 +26,10 @@ $(document).ready(function () {
                     // redirect back to home page
                     window.location.assign("index.html");
                 }
+                else{
+                    var errorpopup = "Could not find account details"
+                    errorpopup.css("red")
+                }
             });
         });
     });
