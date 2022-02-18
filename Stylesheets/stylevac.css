@@ -1,4 +1,3 @@
-
 section{
   height: 900px;
   background-color: white;
@@ -158,6 +157,10 @@ section{
 }
 
 /* Map */
+.googleMaps{
+  height: 500px;
+}
+
 #map {
   height: 400px;
   width: 80%;
