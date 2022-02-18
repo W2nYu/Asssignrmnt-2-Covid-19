@@ -10,7 +10,7 @@
     text-underline-offset: 10px;
 }
 
-html{    background:url("http://www.philippefercha.com/img/home-page.jpg") no-repeat;
+html{background:url("http://www.philippefercha.com/img/home-page.jpg") no-repeat;
     background-size: cover;
     height:100%;
 }
@@ -24,7 +24,7 @@ html{    background:url("http://www.philippefercha.com/img/home-page.jpg") no-re
 #form-main{
     width:100%;
     float:left;
-    padding-top:0px;
+    padding-top:50px;
 }
 
 #form-div {
