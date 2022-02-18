@@ -1,10 +1,219 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap core CSS -->
+<link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<script src="https://use.fontawesome.com/46af14eb3c.js"></script>
+    <title>Drawing app</title>
 </head>
-<body>
+<style>
+* {
+    padding: 0;
+    margin: 0;
+    
+    font-family: 'poppins',sans-serif;
+}
 
+.box {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 40px; 
+}
+.box2 {
+   
+    width: 20%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
+
+}
+
+
+.h2 h4 {
+    font-size: 4.5em;
+  letter-spacing: -1px;
+  background-color: black;
+  color: white;
+  
+}
+.row1 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+    text-align: center;
+    justify-content: center;
+    width: 33.3%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px;
+    height: 800px;
+}
+
+/*styling for the drawing canvas*/
+section
+{
+    margin: 0px;
+    margin: 0px;
+    font-family: Arial, sans-serif;
+}
+
+
+h1 {
+    color:black;
+
+}
+
+
+#sketchpad {
+    right: 0;
+    width: 100%;
+    height: 640px;
+    /*border:1px solid rgba(128, 128, 128, 1);*/
+    border-style: dotted;
+  border-width: thick;
+
+}
+
+.text {
+    position: absolute;
+    top: 50%; 
+    right: 50%;
+    transform: translate(50%,-50%);
+    text-transform: uppercase;
+    font-family: verdana;
+    font-size: 14px;
+    font-weight: 700;
+    color: #f5f5f5;
+    text-shadow: 1px 1px 1px #919191,
+        1px 2px 1px #919191,
+        1px 3px 1px #919191,
+        1px 4px 1px #919191,
+        1px 5px 1px #919191,
+        1px 6px 1px #919191,
+        1px 7px 1px #919191,
+        1px 8px 1px #919191,
+        1px 9px 1px #919191,
+        1px 10px 1px #919191,
+    1px 18px 6px rgba(16,16,16,0.4),
+    1px 22px 10px rgba(16,16,16,0.2),
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
+}
+
+</style>
+<body>
+    <div class="box">
+        
+            <div class="row1">
+
+        
+            <h2><u>What is ART (Antigen Rapid Test)</u> </h2>
+        <br>
+       <p>Antigen Rapid Test (ART) is a fast and easy swab test which can be 
+           self-administered, for individuals to test if they might be infected 
+           with the COVID-19 virus.</p> 
+           <br>
+           <br> 
+           <h4>How to take the ART</h4>
+           <br>
+           <p>
+               The video below provided by the Ministry Of Manpower (MOM)
+               will teach you how to take an <a href="https://www.youtube.com/watch?v=XZ7bM8l5Tqg">ART test properly</a>. 
+           </p>
+           <br>
+           <iframe width="560" height="315" src="https://www.youtube.com/watch?v=XZ7bM8l5Tqg" frameborder="0" allowfullscreen></iframe>
+        </iframe>
+    <p> WHERE IS MY EMBEDDED YOUTUBE VIDEO?!?!?!</p>
+            </div>
+        </div>
+    
+    
+    <br>
+    <br>
+    <!--To float to the left -->
+        <div class="box2">
+            <h2><u>Instructions</u> </h2>
+            <br>
+            <ol>
+                <li>Crank up your creative juices and draw a redesigned packaging of the COVID-19 ART test kit</li>
+                <br>
+                <li>Once finished drawing on the canvas, right click to save the image</li>
+                <br>
+                <li>Finally, upload it and wait for your results!</li>
+                <br>
+              </ol>
+              <i>Note: Submitted drawings are to be drawn on the canvas</i>
+</div>
+
+        
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-3 p-r-0" style="min-width: 200px;">
+            <b>Drawing tools:</b>
+            
+            <div id="colorpalette" class="colorpalette"></div>
+            <hr>
+            Size: <input id="size" type="range" min="0.5" max="100" value="1" step="0.1"/>
+            <hr>
+            <p>
+              Erase:
+              <span id="eraser" class="btn btn-secondary eraser center-block"><i class="fa fa-eraser" aria-hidden="true"></i></span>
+            </p>
+          </div>
+          <div class="col-sm-9 p-l-0 p-r-0">
+            <!-- SketchpadJS container here: -->
+            <div id="sketchpad"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- http://sketchpad.pro - free online drawing board tool -->
+      <script src="http://cdn.sketchpad.pro/dist/current/sketchpad.min.js"></script>
+    <script>
+      /*global window, Sketchpad, Colorpalette*/
+
+function initSketchpad() {
+    "use strict";
+    //create sketchpad on #sketchpad element
+    var sketchpad = new Sketchpad({
+        containerEl: document.getElementById("sketchpad"),
+        createPageConfig: {no: 1}
+    });
+    // avaliable tools `src/sketchpad.tool.*.js`, ex. "pen", "colouring", "line", "rect", "circ"...
+    var toolId = "pen";
+    var tool = sketchpad.setTool(toolId).getCurrentTool();
+
+    //create colorpalette on #colorpalette element
+    var colorpalette = new Colorpalette({
+        containerEl: document.getElementById("colorpalette")
+    }).on("change", function (e) { //bind on change event
+        sketchpad.setTool(toolId).getCurrentTool().setColor(e.color.red, e.color.green, e.color.blue, e.color.alpha);
+    }).setColor(tool.setColor(128, 64, 32, 1).getColor()); //set default color
+
+    // bind on change size event
+    document.getElementById("size").addEventListener("change", function (e) {
+        sketchpad.getCurrentTool().setSize(e.target.value);
+    });
+    document.getElementById("size").value = tool.setSize(2).getSize();//set default size
+
+    // bind eraser button
+    document.getElementById('eraser').addEventListener("click", function () {
+        sketchpad.setTool("eraser");
+    });
+
+    //make objects below visible in global scope
+    window.sketchpad = sketchpad;
+    window.colorpalette = colorpalette;
+    window.tool = tool;
+}
+initSketchpad();
+    </script>
 </body>
 </html>
