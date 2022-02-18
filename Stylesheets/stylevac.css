@@ -158,7 +158,7 @@ section{
 
 /* Map */
 .googleMaps{
-  height: 500px;
+  height: 550px;
 }
 
 #map {
@@ -168,3 +168,5 @@ section{
   margin-right: auto;
   color:black;
 }
+
+
