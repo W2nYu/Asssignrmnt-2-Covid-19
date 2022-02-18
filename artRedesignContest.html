@@ -167,6 +167,10 @@ h1 {
               <span id="eraser" class="btn btn-secondary eraser center-block"><i class="fa fa-eraser" aria-hidden="true"></i></span>
             </p>
           </div>
+            <div class="extra">
+                <h3>Extra</h3>
+                <a id="saveToImage" class="btn btn-warning">Download</a>
+            </div>
           <div class="col-sm-9 p-l-0 p-r-0">
             <!-- SketchpadJS container here: -->
             <div id="sketchpad"></div>
@@ -214,6 +218,18 @@ function initSketchpad() {
     window.tool = tool;
 }
 initSketchpad();
+
+      // DOWNLOAD CANVAS
+
+      document.getElementById('saveToImage').addEventListener('click', function() {
+          downloadCanvas(this, 'canvas', 'masterpiece.png');
+      }, false);
+
+      function downloadCanvas(link, canvas, filename) {
+          link.href = document.getElementById(canvas).toDataURL();
+          link.download = filename;
+      }
+
     </script>
 </body>
 </html>
