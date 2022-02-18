@@ -16,13 +16,13 @@ $(document).ready(function () {
     if (user !== null) {
         $.ajax(settings).done(function (response) {
             response.map(account => {
-                if (user === account._id) {
+                if (user === account.Username) {
                     username = account.Username;
+                    username = account.Username;
+                    $("#navbar-username").html(`Welcome, ${username}!`)
                 }
             });
         });
-        $("#navbar-username").html(username);
-
         // just to bring over to html later
         // not a real variable to use
         let example = `<p id="navbar-username"></p>`;
