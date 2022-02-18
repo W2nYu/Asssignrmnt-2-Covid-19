@@ -45,12 +45,63 @@ color: black;
 }
 
 /*Art test kit section*/
+.artRedesignSec{
+    margin-top: 100px;
+}
+
 .artTestKit{
     height: 600px;
     width: 50%;
     float: left;
+    border-radius: 50px;
 }
 
 .rightContent{
     float: right;
+    width: 50%;
+}
+
+.rightContainer{
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.artRedesignTitle1{
+    font-size: 65px;
+    text-align: right;
+    color: black;
+}
+
+.artRedesignTitle2{
+    font-size: 65px;
+    text-align: right;
+    color: black;
+    text-decoration: underline blue 10px;
+    text-underline-offset: 25px;
+    margin-bottom: 20px;
+}
+
+.artRedesignP{
+    color: black;
+    font-size: 30px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    text-align: left;
+}
+
+.artRedesignButton{
+    margin-top: 150px;
+    font-size: 30px;
+    height: 75px;
+    width: 200px;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    border-radius: 50px;
+}
+.artRedesignButton:hover{
+    color: black;
+    background-color: transparent;
+    border: 3px solid black;
 }
