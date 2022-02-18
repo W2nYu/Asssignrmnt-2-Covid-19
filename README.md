@@ -29,7 +29,10 @@ Covid Curious is a web-application created by Zacharia and Wenyu to give people 
 - Note: we will be incorporating APIs to get live data (Google maps and database for login and register)
 - Lottie animations
 - RestDB 
+- CSS extenstion (Font awesome, for icons)
 
+#Credits
+- Credits to [https://www.vaccine.gov.sg/locations-vcs] MOH, [https://coronavirus.jhu.edu/about/how-to-use-our-data] John Hopkins University, [https://www.who.int/] WHO, [https://www.cdc.gov/coronavirus/2019-ncov/vaccines/different-vaccines/Moderna.html#:~:text=The%20Moderna%20COVID%2D19%20vaccine%20also%20contains%20a%20harmless%20piece,COVID%2D19%20in%20the%20future.] CDC 
 
 # Acknowledgement
 - We would like to acknowledge Mr Suresh our ID lecturer for this module for teaching and helping us along the way.
