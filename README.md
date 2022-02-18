@@ -1,5 +1,5 @@
 
-#CovidCurious, IDAssignment_2
+# CovidCurious, IDAssignment_2
 Covid Curious is a web-application created by Zacharia and Wenyu to give people in Singapore more knowledge about the current pandemic in Singapore. This application is interactive and will provide links and resources for users to educate themselves and to win rewards (Rewards & more section). This web application is tailored for individual users for them to register and login to this application.
 
 # Purpose and target audience
