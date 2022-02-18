@@ -98,14 +98,14 @@ $(function () {
   $("#pngfile-form input[data-type=file], #pngfile-form input[data-type=image]").on("change",function(){
     $(this).data("uploadedfiles",[]);    
   });
-  var apikey = "620f9cdb34fd6215658587db"; // TODO: INSERT YOUR CORS API KEY HERE OR add formapikey to settings
+  var apikey = "620e5be234fd621565858738"; // TODO: INSERT YOUR CORS API KEY HERE OR add formapikey to settings
   
   if (!apikey) alert("Please insert a CORS API key");
 
   var ajaxSettings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://covidcurious2-ec16.restdb.io/rest/redesignedimages",
+    "url": "https://covidcurious-a7f1.restdb.io/rest/accounts",
     "method": "POST",
     "headers": {
       "x-apikey": apikey,
@@ -116,7 +116,7 @@ $(function () {
 
   var ajaxSettingsAttachments = {
      "async": true,
-     "url": "https://covidcurious2-ec16.restdb.io/rest/redesignedimages",
+     "url": "https://covidcurious-a7f1.restdb.io/rest/accounts",
      "method": "POST",
      "contentType": false,
      "headers": {
