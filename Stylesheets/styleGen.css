@@ -29,6 +29,16 @@ body{
   width: 75px;
 }
 
+.usernameDisplay{
+  position: absolute;
+  float: right;
+  top: 45px;
+  right: 200px;
+  width: 75px;
+  color: black;
+  font-size: 25px;
+}
+
 *,
 *::before,
 *::after {
