@@ -4,13 +4,52 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Stylesheets/styleGen.css"> 
-        <link rel="stylesheet" href="Stylesheets/stylevac.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="Stylesheets/stylevac.css">   
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
     </head>
     <style>
+.slider {
+  width: 700px;
+  margin: 0 auto 20px;
+  text-align: center;
+}
 
+.slider .photos {
+  position: relative;
+  height: 433px;
+}
+
+.slider .photos img {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.slider .photos img.shown {
+  opacity: 1;
+}
+
+.prev:before,
+.next:before {
+  color: #fff;
+  font-size: 100px;
+  position: absolute;
+  top: 35%;
+  cursor: pointer;
+}
+
+.prev:before {
+  content: '<';
+  left: 0;
+}
+
+.next:before {
+  content: '>';
+  right: 0;
+}
 
     </style>
     <body>
@@ -53,7 +92,7 @@
                     
                     When a pathogen does infect the body, our body’s defences, called the immune system, are triggered and the pathogen is attacked and destroyed or overcome.
                   </p>
-                  <a href="#">
+                  <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub/q-a-detail/coronavirus-disease-covid-19">
                     <p class="ReadMore">READ MORE</p>
                   </a>
                  </div>
@@ -71,6 +110,21 @@
 
               <div class ="container">
                   <h1 class="vacSecTitle">Types of vaccine</h1>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  
                   <div class="slider slider-1">
                       <div class="photos">
                           <img src="Images/PfizerConfirm.jpg" class="shown" alt="Pfizer Image">
@@ -84,57 +138,58 @@
                       </div>
                   </div>
               </div>
+            
               <br>
               <br>
-              <ol class="list-group list-group-numbered">
-                  <li class="list-group-item d-flex justify-content-between align-items-start">
-                      <div class="ms-2 me-auto">
-                          <h4>Pfizer Vaccine</h4>
-                          <p><strong>Manufacturer:</strong> Pfizer, Inc., and BioNTech</p>
-                          <p><strong>Number of Shots:</strong> 2 shots, 21 days apart</p>
-                          <p><strong>Booster Shot:</strong>Everyone ages 12 years and older is recommended  to get a booster shot at least 5 months after completing their Pfizer-BioNTech primary series. Teens 12-17 years old can only get a Pfizer-BioNTech COVID-19 vaccine booster. For adults 18 years and older, a booster dose of either Pfizer-BioNTech or Moderna (mRNA COVID-19 vaccines) is preferred in most situations.</p> 
-                          <p>Moderately or severely immunocompromised people ages 5 years and older should get an additional primary shot at least 28 days after their second shot.
-Booster Shot: Everyone ages 12 years and older is recommended  to get a booster shot at least 5 months after completing their Pfizer-BioNTech primary series. Teens 12-17 years old can only get a Pfizer-BioNTech COVID-19 vaccine booster. For adults 18 years and older, a booster dose of either Pfizer-BioNTech or Moderna (mRNA COVID-19 vaccines) is preferred in most situations. </p>
-                         <p>Moderately or severely immunocompromised people ages 5 years and older should get an additional primary shot at least 28 days after their second shot.</p>
-                         
-                      </div>
-
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-start">
-                      <div class="ms-2 me-auto">
-                          <h4>Sinovac Vaccine</h4>
-                          <p><strong>Manufacturer:</strong> Sinovac Biotech Ltd. </p>
-                          <p><strong>Number of shots:</strong>SAGE recommends the use of Sinovac-CoronaVac vaccine as 2 doses (0.5 ml) given intramuscularly.</p>
-                          <p>Individuals with a history of anaphylaxis to any component of the vaccine should not take it.</p>
-                          <p>SAGE <u>(Scientific Advisory Group for Emergencies)</u> has thoroughly assessed the data on quality, safety and efficacy of the vaccine and has recommended its use for people aged 18 and above.</p>
-
-                            <p>Persons with acute PCR-confirmed COVID-19 should not be vaccinated until after they have recovered from acute illness and the criteria for ending isolation have been met.</p>
-                            
-                            <p>Anyone with a body temperature over 38.5°C should postpone vaccination until they no longer have a fever.</p>
-                      </div>
-
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-start">
-                      <div class="ms-2 me-auto">
-                          <h4>Moderna Vaccine</h4>
-                          <p><strong>Manufacturer:</strong> ModernaTX, Inc.</p>
-                          <p><strong>Number of Shots:</strong>2 shots, 28 days apart
-                            Moderately or severely immunocompromised people should get an additional primary shot (third dose) at least 28 days after their second shot.</p>
-                          <p><strong>Booster Shot:</strong> People ages 18 years and older who received a Moderna primary series should get a booster shot at least 5 months after completing their primary series. CDC recommends getting a booster dose of either Pfizer-BioNTech or Moderna (mRNA COVID-19 vaccines) in most situations.</p>
-                          <p>The Moderna vaccine is recommended for people ages 18 years and older.</p>
-                          <p>If you had a severe allergic reaction after getting the first dose of an mRNA COVID-19 vaccine, you should not get a second dose of either of the mRNA COVID-19 vaccines (Moderna or Pfizer-BioNTech).</p>
-                          
-                      </div>
-
-                  </li>
-              </ol>
-              <i>All information are from the WHO (World Health Organisation) and CDC (Centre For Disease Control And Prevention)</i>
+              
           </section>
           <section>
             
+
+              
+              <u><h2>Pfizer Vaccine</h2></u>
+              <br>
+              <p><strong>Manufacturer:</strong> Pfizer, Inc., and BioNTech</p>
+              <p><strong>Number of Shots:</strong> 2 shots, 21 days apart</p>
+              <p><strong>Booster Shot:</strong>Everyone ages 12 years and older is recommended  to get a booster shot at least 5 months after completing their Pfizer-BioNTech primary series. Teens 12-17 years old can only get a Pfizer-BioNTech COVID-19 vaccine booster. For adults 18 years and older, a booster dose of either Pfizer-BioNTech or Moderna (mRNA COVID-19 vaccines) is preferred in most situations.</p> 
+              <p>Moderately or severely immunocompromised people ages 5 years and older should get an additional primary shot at least 28 days after their second shot.
+Booster Shot: Everyone ages 12 years and older is recommended  to get a booster shot at least 5 months after completing their Pfizer-BioNTech primary series. Teens 12-17 years old can only get a Pfizer-BioNTech COVID-19 vaccine booster. For adults 18 years and older, a booster dose of either Pfizer-BioNTech or Moderna (mRNA COVID-19 vaccines) is preferred in most situations. </p>
+             <p>Moderately or severely immunocompromised people ages 5 years and older should get an additional primary shot at least 28 days after their second shot.</p>
+             
+     <br>
+
+      
+
+              <u><h2>Sinovac Vaccine</h2></u>
+              <br>
+              <p><strong>Manufacturer:</strong> Sinovac Biotech Ltd. </p>
+              <p><strong>Number of shots:</strong>SAGE recommends the use of Sinovac-CoronaVac vaccine as 2 doses (0.5 ml) given intramuscularly.</p>
+              <p>Individuals with a history of anaphylaxis to any component of the vaccine should not take it.</p>
+              <p>SAGE <u>(Scientific Advisory Group for Emergencies)</u> has thoroughly assessed the data on quality, safety and efficacy of the vaccine and has recommended its use for people aged 18 and above.</p>
+
+                <p>Persons with acute PCR-confirmed COVID-19 should not be vaccinated until after they have recovered from acute illness and the criteria for ending isolation have been met.</p>
+                
+                <p>Anyone with a body temperature over 38.5°C should postpone vaccination until they no longer have a fever.</p>
+ <br>
+      
+              <u><h2>Moderna Vaccine</h2></u>
+              <br>
+              <p><strong>Manufacturer:</strong> ModernaTX, Inc.</p>
+              <p><strong>Number of Shots:</strong>2 shots, 28 days apart
+                Moderately or severely immunocompromised people should get an additional primary shot (third dose) at least 28 days after their second shot.</p>
+              <p><strong>Booster Shot:</strong> People ages 18 years and older who received a Moderna primary series should get a booster shot at least 5 months after completing their primary series. CDC recommends getting a booster dose of either Pfizer-BioNTech or Moderna (mRNA COVID-19 vaccines) in most situations.</p>
+              <p>The Moderna vaccine is recommended for people ages 18 years and older.</p>
+              <p>If you had a severe allergic reaction after getting the first dose of an mRNA COVID-19 vaccine, you should not get a second dose of either of the mRNA COVID-19 vaccines (Moderna or Pfizer-BioNTech).</p>
+              <br>
+
+  <i>All information are from the WHO (World Health Organisation) and CDC (Centre For Disease Control And Prevention)</i>
+
           </section>
-          
+
+
           <section class="container1">
+            <h2>Vaccination centers</h2>
+            
             <div class="flex-item">
                 <div class="flex-img">
                     <img src="Images/Central.png">
@@ -142,6 +197,7 @@ Booster Shot: Everyone ages 12 years and older is recommended  to get a booster 
               <div class="flex-info">
                 <h2>Central</h2>
                 <h4>Vaccination centres located in the central of Singapore</h4>
+                <br>
                 <p><i><a href="https://www.vaccine.gov.sg/locations-vcs">Click here for to view the places to visit</i></a></p>
               </div>
                 </div>
@@ -152,6 +208,7 @@ Booster Shot: Everyone ages 12 years and older is recommended  to get a booster 
               <div class="flex-info">
                 <h2>East</h2>
                 <h4>Vaccination centres located in the east of Singapore</h4>
+                <br>
                 <p><i><a href="https://www.vaccine.gov.sg/locations-vcs">Click here for to view the places to visit</i></a></p>
               </div>
                 </div>
@@ -162,6 +219,7 @@ Booster Shot: Everyone ages 12 years and older is recommended  to get a booster 
               <div class="flex-info">
                 <h2>North</h2>
                 <h4>Vaccination centres located in the north of Singapore</h4>
+                <br>
                 <p><i><a href="https://www.vaccine.gov.sg/locations-vcs">Click here for to view the places to visit</i></a></p>
               </div>
                 </div>
@@ -172,6 +230,7 @@ Booster Shot: Everyone ages 12 years and older is recommended  to get a booster 
               <div class="flex-info">
                 <h2>North-East</h2>
                 <h4>Vaccination centres located in the north-east of Singapore</h4>
+                <br>
                 <p><i><a href="">Click here for to view the places to visit</i></a></p>
               </div>
                 </div>
@@ -182,10 +241,12 @@ Booster Shot: Everyone ages 12 years and older is recommended  to get a booster 
               <div class="flex-info">
                 <h2>West</h2>
                 <h4>Vaccination centres located in the west of Singapore</h4>
+                <br>
                 <p><i><a href="https://www.vaccine.gov.sg/locations-vcs">Click here for to view the places to visit</i></a></p>
               </div>
                 </div>
             </section>
+          
 
           <section class="googleMaps">
             <h3 class="mapTitle">Vaccination Centres</h3>
@@ -247,9 +308,74 @@ Booster Shot: Everyone ages 12 years and older is recommended  to get a booster 
               </div>
           </footer>
           <script src="Scripts/NavScript.js"></script>
-          <script src="Scripts/VaccinePgSlider.js"></script>
           <script src="Scripts/MapVacCen.js"></script>
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          <!--SCRIPT FOR SLIDER ANIMATIONS-->
+          <script>
+            $(function() {
+
+new Slider({
+    images: '.slider-1 img',
+    btnPrev: '.slider-1 .buttons .prev',
+    btnNext: '.slider-1 .buttons .next',
+    auto: false
+});
+
+new Slider({
+    images: '.slider-2 img',
+    btnPrev: '.slider-2 .buttons .prev',
+    btnNext: '.slider-2 .buttons .next',
+    auto: true,
+    rate: 2000
+});
+});
+
+
+function Slider(obj) {
+
+this.images = $(obj.images);
+this.auto = obj.auto;
+this.btnPrev = obj.btnPrev;
+this.btnNext = obj.btnNext;
+this.rate = obj.rate || 1000;
+
+var i = 0;
+var slider = this;
+
+// The "Previous" button: to remove the class .shoved, show the previous image and add the .shoved class
+this.prev = function () {
+slider.images.eq(i).removeClass('shown');
+i--;
+
+if (i < 0) {
+  i = slider.images.length - 1;
+}
+
+slider.images.eq(i).addClass('shown');
+}
+
+// The "Next" button: to remove the class .shoved, show the next image and add the .shoved class
+this.next = function () {
+slider.images.eq(i).removeClass('shown');
+i++;
+
+if (i >= slider.images.length) {
+  i = 0;
+}
+
+slider.images.eq(i).addClass('shown');
+}
+
+// To add next and prev functions when clicking the corresponding buttons
+$(slider.btnPrev).on('click', function(){ slider.prev();});
+$(slider.btnNext).on('click', function(){ slider.next();});
+
+// For the automatic slider: this method calls the next function at the set rate
+if (slider.auto)  {
+    setInterval(slider.next, slider.rate);
+}
+};
+          </script>
     </body>
 </html>

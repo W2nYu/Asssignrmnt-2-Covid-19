@@ -24,7 +24,6 @@ function Slider(obj) {
     this.btnPrev = obj.btnPrev;
     this.btnNext = obj.btnNext;
     this.rate = obj.rate || 1000;
-
     var i = 0;
     var slider = this;
 
